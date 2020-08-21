@@ -1,0 +1,3 @@
+def Main(): int
+    return 0
+end
