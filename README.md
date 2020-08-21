@@ -8,5 +8,5 @@ Ow programming panguage.
 : optional -o <filename_for_bytecode> :
 \>./toovm <path_to_file> -o <filename_for_bytecode>
 
-\>./owm <path_to_file_for_bytecode>
+\>./owm <path_to_file_for_bytecode> \n
 \>\>Hello, world!
