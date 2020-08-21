@@ -4,11 +4,11 @@ Ow programming panguage.
 
 ## In Windows
 \>./toovm <path_to_file>
-<code>
-: optional -o <filename_for_bytecode> : \n
 
-\>./toovm <path_to_file> -o <filename_for_bytecode> \n
+: optional -o <filename_for_bytecode> : 
+
+\>./toovm <path_to_file> -o <filename_for_bytecode> 
 
 \>./owm <path_to_file_for_bytecode> 
-</code>
+
 \>\>Hello, world!
