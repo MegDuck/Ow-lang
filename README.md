@@ -12,3 +12,12 @@ Ow programming panguage.
 \>./owm <path_to_file_for_bytecode> 
 
 \>\>Hello, world!
+
+# Code Sample
+<code>
+def Main():
+   
+\treturn 0
+
+end
+</code>
