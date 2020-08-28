@@ -11,12 +11,12 @@
 #include <iostream>
 #include "translate.cpp"
 /*
-*
+
 *Ow 1.0,
 *Byte-code functions translate.cpp,
 *Lexer in toovm.cpp,
 *Gmail: trimskydev@gmail.com,
-*
+
 */
 //All Identifiers
 enum Tokens{
