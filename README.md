@@ -14,10 +14,8 @@ Ow programming panguage.
 \>\>Hello, world!
 
 # Code Sample
-<code>
+<pre>
 def Main():
-   
-\treturn 0
-
+   return 0
 end
-</code>
+</pre>
