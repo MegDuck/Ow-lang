@@ -10,13 +10,41 @@
 #include <fstream>
 #include <iostream>
 #include "translate.cpp"
-/*
+//Errors
+#define SUCCESS 0
+#define NO_SUCCESS -1
+#define EXIT -1
+#define SYNTAX_ERROR 1
+#define NOCORRECTCOMMAND_ERROR 2
+#define NCNF_ERROR 3
+#define RUNTIME_ERROR 4
+//#define LTTHREE_ERROR 6
+#define ERROR -2
+#define LTT_ERROR 6
 
+const char * errors[5] = {
+	"Success exit with 0", 
+	"Argc less than 3 ",
+	"unknown command",
+	"No correct name of file.",
+	"RuntimeError. "
+};
+
+int Error(int &retcode) {
+	if(retcode != SUCCESS){
+		std::cerr << errors[retcode]);
+		return NO_SUCCESS;
+	}
+	return SUCCESS;
+	
+}
+/*
+*
 *Ow 1.0,
 *Byte-code functions translate.cpp,
 *Lexer in toovm.cpp,
 *Gmail: trimskydev@gmail.com,
-
+*
 */
 //All Identifiers
 enum Tokens{
@@ -36,41 +64,37 @@ enum Tokens{
 	//End of file
 	tEOF = -2
 };
-enum Errors{
-	NoneError = 0,
-	SyntaxError = 1,
-	LessThan3ArgsError,
-	NoCorrectCommandError = 2,
-	NoCorrectNameOfFileError = 3,
-	RunTimeError = 4,
-};
-std::string errors[5] = {
-	" ", 
-	"Argc less than 3 ",
-	"unknown command",
-	"No correct name of file.",
-	"RuntimeError. "
-};
+
+
 //Lexer functions
 extern int readtall_src(FILE *output,FILE *input); 
-static void bytecode_src(std::string outputf, std::string inputf, int *retcode){
+static void bytecode_src(std::string outputf, std::string inputf, int *ret){
+
 	
 	FILE *input = fopen(inputf.c_str(), "r");
 	if(input == nullptr) {
-		*retcode = NoCorrectNameOfFileError;
+		*ret = NCNF_ERROR;
+		
 		return;
 	}
 	FILE *output = fopen(outputf.c_str() , "w");
 	if(output == nullptr) {
-		*retcode = NoCorrectNameOfFileError;
+		*ret = NCNF_ERROR;
+		
 		return;
+	}
+	*ret = SUCCESS;
+	if(ret != SUCCESS) {
+		Error(*ret);
 	}
 	int res = readtall_src(output, input);
 	fclose(input);
 	fclose(output);
 	if (res != 0) {
-		*retcode = RunTimeError;
+		*ret = RUNTIME_ERROR;
+		Error(*ret);
 	}
+
 	
 }
 
@@ -79,30 +103,32 @@ static void bytecode_src(std::string outputf, std::string inputf, int *retcode){
 
 int main(int argc, const char * argv[])
 {
-	int retcode = NoneError;
+	int *ret = SUCCESS;
+	int Error(int &retcode);
 	if(argc < 3){
-		retcode = LessThan3ArgsError;
-		goto Error;
-	}
-	
-	if (strcmp(argv[1], "build") == 0 ){
-		if(argc >= 5 && strcmp(argv[3],"-o") == 0) {
-			
-			const char* bc_suffix = ".opc";
-			char bytecode_name[256];
-			bytecode_name [ 0 ] = '\0';
-			strcat(bytecode_name, argv[4]);
-			strcat(bytecode_name, bc_suffix);
-			
-			bytecode_src(bytecode_name, argv[2], &retcode);
-		} else {
-	    bytecode_src("main.opc",argv[2], &retcode);
-		}
-	}
-	goto Error;
-Error:
-	if(retcode != NoneError){
-		fprintf(stderr, "> %s\n", errors[retcode]);
+		*ret = LTT_ERROR;
+		Error(*ret);
 	}
 
+	
+	if (strcmp(argv[1],"build") == 0 ){
+		if(argc =< 5 && strcmp(argv[3], "-o" ) == 0) {
+			
+			std::string full_str = argv[4];
+			std::string str = ".opc";
+
+			full_str.append(str);
+			
+			bytecode_src(full_str, argv[2], ret);
+		} 
+		else {
+		std::cout<<"Hello, world!";
+	    bytecode_src("main.opc",argv[2], ret);
+		}
+	}
+    else{
+		*ret = LTT_ERROR;
+	}
+	Error(*ret);
+	
 }
