@@ -1,0 +1,11 @@
+let print()->*str{
+    __asm #define [code] {
+
+    }
+}
+let print()->*int{
+
+}
+let print()->*float{
+
+}
