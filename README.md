@@ -8,7 +8,6 @@ ____________
 <pre>
 let Main() {
    
-   return 0 
-   
+   return 0 \n
 }
 </pre>
