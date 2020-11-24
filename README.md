@@ -7,6 +7,7 @@ ____________
 # Code Sample
 <code lang = "rust">
 let Main() {
+   
    return 0 //Main: return 0: Main:int
 }
 </code>
