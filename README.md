@@ -5,9 +5,10 @@ TODO
 ____________
 
 # Code Sample
-<code lang = "rust">
+<pre>
 let Main() {
    
-   return 0 //Main: return 0: Main:int
+   return 0 
+   
 }
-</code>
+</pre>
