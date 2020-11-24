@@ -1,3 +1,1 @@
-#announce PRINT_HW
-let print(argc...);
-#private PRINT_HW
+//Hello!
