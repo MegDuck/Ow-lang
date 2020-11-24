@@ -7,7 +7,6 @@ ____________
 # Code Sample
 <pre>
 let Main() {
-   
-   return 0 \n
+   return 0 
 }
 </pre>
