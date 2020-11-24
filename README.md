@@ -5,8 +5,8 @@ TODO
 ____________
 
 # Code Sample
-<pre>
-def Main():
-   return 0
-end
-</pre>
+<code lang = "rust">
+let Main() {
+   return 0 //Main: return 0: Main:int
+}
+</code>
