@@ -6,7 +6,6 @@
 #include <string>
 #include "Object.h"
 #include "ParsSyn.h"
-#include "MakeIR.cpp"
 //extern std::string MakeBytecode(const char* input, const char* output);
 //extern std::string SyntaxParsing(const char* youTrue);
 int main(int argc, const char* argv[]) {
