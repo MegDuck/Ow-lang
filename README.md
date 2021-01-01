@@ -1,5 +1,5 @@
 # Ow-lang
-Ow programming panguage.
+Ow programming language.
 # Build and run.
 TODO
 ____________
